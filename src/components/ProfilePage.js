@@ -17,15 +17,14 @@ const ProfilePage = ({userData}) => {
     return (
         <>
             <h1>Profile Page</h1>
-            {console.log(userInfo)}
-            {userData && (
+            {userInfo && (
                 <div id='profile-container'>
-                    <img src={userData.image} />
-                    <h2><span></span> {`${userData.firstName} ${userData.lastName}`} </h2>
-                    <p><span>Id: </span> {`${userData.id}`}</p>
-                    <p><span>Gender: </span> {`${userData.gender}`}</p>
-                    <p><span>Username: </span> {`${userData.username}`}</p>
-                    <p><span>Email: </span> {`${userData.email}`}</p>
+                    <img src={userInfo.image} />
+                    <h2><span></span> {`${userInfo.firstName} ${userInfo.lastName}`} </h2>
+                    <p><span>Id: </span> {`${userInfo.id}`}</p>
+                    <p><span>Gender: </span> {`${userInfo.gender}`}</p>
+                    <p><span>Username: </span> {`${userInfo.username}`}</p>
+                    <p><span>Email: </span> {`${userInfo.email}`}</p>
                 </div>
             )}
         </>
