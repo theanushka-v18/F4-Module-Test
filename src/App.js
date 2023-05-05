@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import { BrowserRouter } from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import './App.css';
+import LoginPage from './components/LoginPage';
+import ProfilePage from './components/ProfilePage';
+// import { Provider } from 'react-redux';
+import { useState } from 'react';
 
 function App() {
+  const [userData, setuserData] = useState(null);
+
+  function parentComp(userdata) {
+    setuserData(userdata);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <Provider store={store}> */}
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LoginPage parentCallback={parentComp} />} />
+            <Route path="/profile" element={<ProfilePage userData={userData} />} />
+          </Routes>
+        </BrowserRouter>
+      {/* </Provider> */}
+      
+      
+    </>
   );
 }
 
